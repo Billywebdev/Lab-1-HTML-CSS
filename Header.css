@@ -1,0 +1,74 @@
+/* Pushes elements all the way out to the edges*/
+body {
+    margin: 0;
+    font-family: Quicksand, Inter, Open Sans;
+}
+/* Adds background color, padding around elements and positions nav items correctly */
+.navbar {
+    background-color: #0f253c;
+    padding: 30px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Positions nav pages in an absoluted position with gap between */
+.nav-left, .nav-right {
+    position: absolute;
+    display: flex;
+    gap: 80px;
+}
+/* Positions nav pages to the left with a margin */
+.nav-left {
+    left: 40px;
+}
+/* Positions "Contacts" page to the right with a margin */
+.nav-right {
+    right: 40px;
+}
+/* Adds font color, size and removes the default text decorations on linked text */
+.nav-left a, .nav-right a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+/* Aligns the portrait image with the name vertically and centered */
+.nav-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+/* Changes the size of the portrait image and put a margin between the text */
+.nav-center img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+/* Adds color and changes size of the name under the portrait */
+.nav-center span {
+    font: Great Vibes;
+    color: white;
+    font-size: 18px;
+}
+/* Responsitivity for smaller screens*/
+@media (max-width: 768px) {
+/* Creates space between div elements */
+.navbar {
+    gap: 20px;
+}
+/* Positions menu items in a default static way */
+.nav-left, .nav-right {
+    position: static;
+    gap: 20px;
+}
+/* Image before menu items */
+    .nav-center {
+    order: -1;
+}
+/* Decrease size of image */
+    .nav-center img {
+    width: 70px;
+    height: 70px;
+}
+}
