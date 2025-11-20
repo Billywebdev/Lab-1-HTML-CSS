@@ -1,11 +1,12 @@
 /* Pushes elements all the way out to the edges*/
 body {
-    margin: 0;
     font-family: Quicksand, Inter, Open Sans;
+    margin: 0;
+    box-sizing: border-box;
 }
 /* Adds background color, padding around elements and positions nav items correctly */
 .navbar {
-    background-color: #0f253c;
+    background-color: #11263B;
     padding: 30px 0;
     position: relative;
     display: flex;
@@ -52,7 +53,7 @@ body {
     font-size: 18px;
 }
 /* Responsitivity for smaller screens*/
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 /* Creates space between div elements */
 .navbar {
     gap: 20px;
