@@ -1,28 +1,72 @@
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+/* Styles the heading text and adds a margin*/
 h1 {
-  font-size: 26px;
+  font-family: Amulya;
+  font-size: 32px;
   color: white;
-  margin-bottom: 20px;
 }
+
+/* Styles the second heading text and adds a margin*/
 h2 {
-  font-size: 16px;
+  font-family: Synonym;
+  font-size: 20px;
   color: white;
+  margin-top: 20px;
   margin-bottom: 5px;
 }
-p {
-  font-size: 12px;
-  color: #babcb6;
-  margin-bottom: 20px;
+
+/* Styles the third heading text and adds margins */
+h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
+
+/* Styles heading links with gold color and smooth transitions */
+h3 a {
+  font-family: Synonym;
+  font-size: 20px;
+  color: #c2ab7a;
+  margin-bottom: 5px;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+/* Animated underline pseudo-element for heading links */
+h3 a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #c2ab7a;
+  transition: width 0.3s ease;
+}
+
+/* Hover state for heading links with color change */
+h3 a:hover {
+  color: #d4c5a0;
+}
+
+/* Animate underline on hover */
+h3 a:hover::after {
+  width: 100%;
+}
+
+/* Styles the body text and adds a margin*/
+p {
+  font-family: Synonym;
+  font-size: 16px;
+  color: #babcb6;
+}
+
+/* Creates the main layout of the page with an overall grid, background color, paddings and gaps*/
 .container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr) ;
-  grid-auto-rows: 385px;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  grid-auto-rows: 400px;
   background-color: #183450;
   padding-top: 10px;
   padding-left: 16.7%;
@@ -30,43 +74,124 @@ p {
   padding-bottom: 10px;
   gap: 10px;
 }
-.container div {
-  text-align: left;
-  background-color: #c91d1d;
-  border-radius: 10px;
-}
+
+/* Adds new background color and rounded corners to the sections of the main grid and makes sure the take upp all the space within the grid*/
 .container div section {
   background-color: #11263B;
   border-radius: 10px;
   width: 100%;
   height: 100%;
 }
+
+/* Pushes the first box of the grid across the top two columns*/
 .item1 {
   grid-column-start: 1;
   grid-column-end: 3;
 }
+
+/* Styles the first item image layout */
+.item1 img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Puts "Skills" and "Experiences" evenly next to each other and adds a gap between them */
 .item2 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   gap: 10px;
 }
-.Skills, .Experiences {
+
+/* Adds padding within "Skills" and "Experiences" sections */
+.item2 section {
   padding: 20px;
 }
+
+/* Creates a grid within the main grid with a gap between three separate boxes */
 .item3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 10px;
 }
-.info {
+
+/* Spans one of the three boxes to the top*/
+.intro {
   grid-column: 1 / 3;
   padding: 20px;
 }
-.Education, .Years {
-display: flex;
+
+/* Centers Education and Years sections both horizontally and vertically */
+.Education,
+.Years {
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+/* Styles Projects and Gallery sections with flexbox layout */
+.Projects,
+.Gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Adds top margin to Projects and Gallery heading text */
+.Projects h1,
+.Gallery h1 {
+  margin-top: 20px;
+}
+
+/* Styles images in Projects and Gallery sections with responsive sizing and rounded bottom corners */
+.Projects img,
+.Gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 0 10px 10px;
+}
+
+/** Responsitivity for smaller screens*/
+@media (max-width: 1400px) {
+  .container {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+/*Responsitivity for mobile screens*/
+@media (max-width: 1000px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .item1 img {
+    width: 100%;
+    height: auto;
+  }
+
+  .item2 {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .item2 section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item3 {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
 }
