@@ -1,67 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Billys Portfolio</title>
-    <link rel="stylesheet" href="Header.css" />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <ul class="nav-left">
-          <li>
-            <img src="images/Home.png" alt="Home-icon" /><a href="Index.html"
-              >Home</a
-            >
-          </li>
-          <li>
-            <img class="Projects-img" src="images/Projects.png" alt="" /><a
-              href="Projects.html"
-              >Projects</a
-            >
-          </li>
-          <li>
-            <img src="images/Gallery.png" alt="" /><a href="Gallery.html"
-              >Gallery</a
-            >
-          </li>
-        </ul>
-        <div class="nav-center">
-          <img src="images/Portrait.png" alt="Portrait" />
-          <span>Billy Lindström</span>
-        </div>
-        <ul class="nav-right">
-          <li>
-            <img src="images/Contact-black.png" alt="" /><a href="Contact.html"
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Billys Portfolio</title>
+  <link rel="stylesheet" href="Header.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <ul class="nav-left">
+        <li>
+          <img src="images/Home.png" alt="Home-icon" /><a href="Index.html">Home</a>
+        </li>
+        <li>
+          <img class="Projects-img" src="images/Projects.png" alt="" /><a href="Projects.html">Projects</a>
+        </li>
+        <li>
+          <img src="images/Gallery.png" alt="" /><a href="Gallery.html">Gallery</a>
+        </li>
+      </ul>
+      <div class="nav-center">
+        <img src="images/Portrait.png" alt="Portrait" />
+        <span>Billy Lindström</span>
+      </div>
+      <ul class="nav-right">
+        <li>
+          <img src="images/Contact-black.png" alt="" /><a href="Contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div>
+      <section>
+        <h1>Contact</h1>
+      </section>
+    </div>
+    <div>
+      <form action="" method="post">
         <section>
-          <h1>Contact</h1>
+          <label for="Message">Message...</label>
+          <input type="text" name="Message" id="Message" />
         </section>
-      </div>
-      <div>
-        <form action="" method="post">
-          <section>
-            <label for="Message">Message...</label>
-            <input type="text" name="Message" id="Message" />
-          </section>
-          <section>
-            <label for="Subject">Subject...</label>
-            <input type="text" name="Subject" id="Subject" />
-            <label for="Name">Name...</label>
-            <input type="text" name="Name" id="Name" />
-            <label for="Email">Email...</label>
-            <input type="text" name="Email" id="Email" />
-          </section>
-        </form>
-      </div>
-    </main>
-  </body>
+        <section>
+          <label for="Subject">Subject...</label>
+          <input type="text" name="Subject" id="Subject" />
+          <label for="Name">Name...</label>
+          <input type="text" name="Name" id="Name" />
+          <label for="Email">Email...</label>
+          <input type="text" name="Email" id="Email" />
+        </section>
+      </form>
+    </div>
+  </main>
+</body>
+
 </html>

@@ -23,6 +23,84 @@
     box-sizing: border-box;
 }
 
+/* Styles the heading text and adds a margin*/
+h1 {
+    font-family: Amulya;
+    font-size: 32px;
+    color: white;
+}
+
+/* Styles the second heading text and adds a margin*/
+h2 {
+    font-family: Synonym;
+    font-size: 20px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+/* Styles the third heading text and adds margins */
+h3 {
+    font-family: Synonym;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Styles the fourth heading text and adds margins */
+h4 {
+    font-family: Amulya;
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+/* Styles heading links with gold color and smooth transitions */
+h3 a {
+    font-family: Synonym;
+    font-size: 20px;
+    color: #c2ab7a;
+    margin-bottom: 5px;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+/* Animated underline pseudo-element for heading links */
+h3 a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #c2ab7a;
+    transition: width 0.3s ease;
+}
+
+/* Hover state for heading links with color change */
+h3 a:hover {
+    color: #d4c5a0;
+}
+
+/* Animate underline on hover */
+h3 a:hover::after {
+    width: 100%;
+}
+
+/* Styles the body text and adds a margin*/
+p {
+    font-family: Synonym;
+    font-size: 16px;
+    color: #babcb6;
+}
+
+span {
+    color: #c2ab7a;
+}
+
 /* Styles unordered lists with flexbox layout */
 ul {
     list-style-type: none;
@@ -153,25 +231,23 @@ li img {
 
 /* Responsitivity for smaller screens*/
 @media (max-width: 1000px) {
-
-    /* Creates space between div elements */
     .navbar {
         gap: 20px;
+        flex-wrap: wrap;
     }
 
-    /* Positions menu items in a default static way */
     .nav-left,
     .nav-right {
         position: static;
         gap: 20px;
+        width: 100%;
+        justify-content: center;
     }
 
-    /* Image before menu items */
     .nav-center {
         order: -1;
     }
 
-    /* Decrease size of image */
     .nav-center img {
         width: 70px;
         height: 70px;

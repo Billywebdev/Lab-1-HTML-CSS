@@ -1,66 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Billys Portfolio</title>
-    <link rel="stylesheet" href="Header.css" />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <ul class="nav-left">
-          <li>
-            <img src="images/Home.png" alt="Home icon" /><a href="Index.html"
-              >Home</a
-            >
-          </li>
-          <li>
-            <img
-              class="Projects-img"
-              src="images/Projects.png"
-              alt="Projects icon"
-            /><a href="Projects.html">Projects</a>
-          </li>
-          <li>
-            <img src="images/Gallery.png" alt="Gallery icon" /><a
-              href="Gallery.html"
-              >Gallery</a
-            >
-          </li>
-        </ul>
-        <div class="nav-center">
-          <img src="images/Portrait.png" alt="Portrait" />
-          <span>Billy Lindström</span>
-        </div>
-        <ul class="nav-right">
-          <li>
-            <img src="images/Contact-black.png" alt="Envelope icon" /><a
-              href="Contact.html"
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <div>
-        <section>
-          <h1>Projects</h1>
-        </section>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Billys Portfolio</title>
+  <link rel="stylesheet" href="Header.css" />
+  <link rel="stylesheet" href="Project.css" />
+</head>
+
+<body>
+  <!-- Navigation header with site logo and main menu -->
+  <header>
+    <nav class="navbar">
+      <ul class="nav-left">
+        <li>
+          <img src="images/Home.png" alt="Home icon" /><a href="Index.html">Home</a>
+        </li>
+        <li>
+          <img class="Projects-img" src="images/Projects.png" alt="Projects icon" /><a href="Projects.html">Projects</a>
+        </li>
+        <li>
+          <img src="images/Gallery.png" alt="Gallery icon" /><a href="Gallery.html">Gallery</a>
+        </li>
+      </ul>
+      <div class="nav-center">
+        <img src="images/Portrait.png" alt="Portrait" />
+        <span>Billy Lindström</span>
       </div>
-      <div>
-        <section>
-          <img src="" alt="Improved 1177 image" />
-          <h2>1177 UX/ UI</h2>
-          <h3>Improved interface and user experience</h3>
-          <h4>Challenge</h4>
+      <ul class="nav-right">
+        <li>
+          <img src="images/Contact-black.png" alt="Envelope icon" /><a href="Contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Main content: vertically stacked project cards -->
+  <main>
+    <div class="projects-page">
+      <!-- Page title -->
+      <section class="Project-Title">
+        <h1>Projects</h1>
+      </section>
+      <!-- Project card: image (left) and content (right) -->
+      <section class="project-item">
+        <img src="images/1117 projekt.png" alt="1177 project image" />
+        <div class="project-content">
+          <h1>1177 UX/UI</h1>
+          <h4>Improved interface and user experience</h4>
+          <h3>Challenge</h3>
           <p>Improve discoverability</p>
-          <h4>Solution</h4>
-          <p>Create easer to use home page</p>
-        </section>
-      </div>
-      <footer></footer>
-    </main>
-  </body>
+          <h3>Solution</h3>
+          <p>Create easier to use home page</p>
+        </div>
+      </section>
+      <!-- Project card: image (left) and content (right) -->
+      <section class="project-item">
+        <img src="images/art-exhibition.png" alt="Art exhibition image" />
+        <div class="project-content">
+          <h1>Fixer Website</h1>
+          <h4>Created website to help elderly with everyday chores</h4>
+          <h3>Challenge</h3>
+          <p>Create an easy to use and accessible website</p>
+          <h3>Solution</h3>
+          <p>Simple but stylish design with a step by step guide on the front page</p>
+        </div>
+      </section>
+      <!-- Project card: image (left) and content (right) -->
+      <section class="project-item">
+        <img src="images/portfolio.png" alt="Portfolio image" />
+        <div class="project-content">
+          <h1>Portfolio</h1>
+          <h4>Personal portfolio website</h4>
+          <h3>Challenge</h3>
+          <p>Showcase my skills and projects in a professional way</p>
+          <h3>Solution</h3>
+          <p>Complimentary color palette with stylish fonts in a grid layout</p>
+        </div>
+      </section>
+
+    </div>
+    <footer></footer>
+  </main>
+</body>
+
 </html>

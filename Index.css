@@ -1,66 +1,3 @@
-/* Styles the heading text and adds a margin*/
-h1 {
-  font-family: Amulya;
-  font-size: 32px;
-  color: white;
-}
-
-/* Styles the second heading text and adds a margin*/
-h2 {
-  font-family: Synonym;
-  font-size: 20px;
-  color: white;
-  margin-top: 20px;
-  margin-bottom: 5px;
-}
-
-/* Styles the third heading text and adds margins */
-h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-/* Styles heading links with gold color and smooth transitions */
-h3 a {
-  font-family: Synonym;
-  font-size: 20px;
-  color: #c2ab7a;
-  margin-bottom: 5px;
-  text-decoration: none;
-  position: relative;
-  display: inline-block;
-  transition: color 0.3s ease;
-}
-
-/* Animated underline pseudo-element for heading links */
-h3 a::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #c2ab7a;
-  transition: width 0.3s ease;
-}
-
-/* Hover state for heading links with color change */
-h3 a:hover {
-  color: #d4c5a0;
-}
-
-/* Animate underline on hover */
-h3 a:hover::after {
-  width: 100%;
-}
-
-/* Styles the body text and adds a margin*/
-p {
-  font-family: Synonym;
-  font-size: 16px;
-  color: #babcb6;
-}
-
 /* Creates the main layout of the page with an overall grid, background color, paddings and gaps*/
 .container {
   display: grid;
@@ -158,7 +95,7 @@ p {
   border-radius: 0 0 10px 10px;
 }
 
-/** Responsitivity for smaller screens*/
+/* Responsitivity for smaller screens for Index page*/
 @media (max-width: 1400px) {
   .container {
     padding-left: 5%;
@@ -166,7 +103,7 @@ p {
   }
 }
 
-/*Responsitivity for mobile screens*/
+/* Responsitivity for mobile screens for Index page*/
 @media (max-width: 1000px) {
   .container {
     display: flex;
@@ -193,5 +130,15 @@ p {
   .item3 {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+  }
+
+  /* Center the Education heading on small screens */
+  .Education {
+    align-items: center;
+  }
+
+  .Education h1 {
+    text-align: center;
+    width: 100%;
   }
 }
