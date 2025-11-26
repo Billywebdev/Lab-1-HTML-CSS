@@ -6,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Billys Portfolio</title>
   <link rel="stylesheet" href="Header.css" />
+  <link rel="stylesheet" href="Contact.css" />
 </head>
 
 <body>
+  <!-- Navigation header with site logo and main menu -->
   <header>
     <nav class="navbar">
       <ul class="nav-left">
@@ -33,26 +35,30 @@
       </ul>
     </nav>
   </header>
+  <!-- Main content: two-column contact form with message on left and contact fields on right -->
   <main>
-    <div>
-      <section>
+    <div class="contact-container">
+      <!-- Page title -->
+      <section class="contact-title">
         <h1>Contact</h1>
       </section>
-    </div>
-    <div>
-      <form action="" method="post">
-        <section>
-          <label for="Message">Message...</label>
-          <input type="text" name="Message" id="Message" />
-        </section>
-        <section>
-          <label for="Subject">Subject...</label>
-          <input type="text" name="Subject" id="Subject" />
-          <label for="Name">Name...</label>
-          <input type="text" name="Name" id="Name" />
-          <label for="Email">Email...</label>
-          <input type="text" name="Email" id="Email" />
-        </section>
+      <!-- Contact form: two-column layout -->
+      <form class="contact-form" action="" method="post">
+        <!-- Left column: message textarea -->
+        <div class="form-left">
+          <label class="sr-only" for="Message">Message</label>
+          <textarea name="Message" id="Message" placeholder="Message..." rows="8"></textarea>
+        </div>
+        <!-- Right column: subject, name, email fields and send button -->
+        <div class="form-right">
+          <label class="sr-only" for="Subject">Subject</label>
+          <input type="text" name="Subject" id="Subject" placeholder="Subject..." />
+          <label class="sr-only" for="Name">Name</label>
+          <input type="text" name="Name" id="Name" placeholder="Name..." />
+          <label class="sr-only" for="Email">Email</label>
+          <input type="email" name="Email" id="Email" placeholder="Email..." />
+          <button type="submit" class="send-btn">Send</button>
+        </div>
       </form>
     </div>
   </main>

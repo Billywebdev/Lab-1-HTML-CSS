@@ -1,14 +1,21 @@
+/* Index page wrapper with padding matching other pages */
+.index-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #183450;
+  padding: 40px 5%;
+  min-height: calc(100vh - 200px);
+}
+
 /* Creates the main layout of the page with an overall grid, background color, paddings and gaps*/
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 100%;
   grid-auto-rows: 400px;
   background-color: #183450;
-  padding-top: 10px;
-  padding-left: 16.7%;
-  padding-right: 16.7%;
-  padding-bottom: 10px;
+  width: 1200px;
+  max-width: 100%;
   gap: 10px;
 }
 
@@ -95,21 +102,11 @@
   border-radius: 0 0 10px 10px;
 }
 
-/* Responsitivity for smaller screens for Index page*/
-@media (max-width: 1400px) {
-  .container {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-}
-
 /* Responsitivity for mobile screens for Index page*/
 @media (max-width: 1000px) {
   .container {
     display: flex;
     flex-direction: column;
-    padding-left: 5%;
-    padding-right: 5%;
   }
 
   .item1 img {
