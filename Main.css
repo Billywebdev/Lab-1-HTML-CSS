@@ -1,0 +1,1350 @@
+/* ===================================
+   CSS VARIABLES
+   =================================== */
+
+:root {
+    /* Color Variables */
+    --color-primary-dark: #183450;
+    --color-secondary-dark: #11263B;
+    --color-accent-gold: #c2ab7a;
+    --color-accent-gold-light: #d4c5a0;
+    --color-text-light: #babcb6;
+    --color-white: #ffffff;
+
+    /* Font Families */
+    --font-heading: Amulya;
+    --font-body: Synonym;
+    --font-script: GreatVibes;
+}
+
+/* ===================================
+   GLOBAL STYLES & TYPOGRAPHY
+   =================================== */
+
+/* Fade-in animation for page content */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Imported fonts */
+@font-face {
+    font-family: Amulya;
+    src: url(fonts/Amulya-Variable.ttf);
+}
+
+@font-face {
+    font-family: Synonym;
+    src: url(fonts/Synonym-Variable.ttf);
+}
+
+@font-face {
+    font-family: GreatVibes;
+    src: url(fonts/GreatVibes-Regular.ttf);
+}
+
+/* Enable smooth scrolling for website */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reset default browser styles and set box-sizing for all elements */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Set body to full viewport height with flexbox for sticky footer layout */
+body {
+    background-color: var(--color-primary-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Allow main content to grow and push footer to bottom */
+main {
+    flex: 1;
+}
+
+/* Styles the heading text and adds a margin*/
+h1 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    color: var(--color-white);
+}
+
+/* Styles the second heading text and adds a margin*/
+h2 {
+    font-family: var(--font-body);
+    font-size: 20px;
+    color: var(--color-white);
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+/* Styles the third heading text and adds margins */
+h3 {
+    font-family: var(--font-body);
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--color-white);
+}
+
+/* Styles the fourth heading text and adds margins */
+h4 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: var(--color-white);
+}
+
+/* Styles heading links with gold color and smooth transitions */
+h3 a {
+    font-size: 20px;
+    color: var(--color-accent-gold);
+    margin-bottom: 5px;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+/* Animated underline for heading links */
+h3 a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent-gold);
+    transition: width 0.3s ease;
+}
+
+/* Hover state for heading links with color change */
+h3 a:hover {
+    color: var(--color-accent-gold-light);
+}
+
+/* Animate underline on hover */
+h3 a:hover::after {
+    width: 100%;
+}
+
+/* Styles the body text */
+p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--color-text-light);
+}
+
+/* Styles specific words */
+span {
+    color: var(--color-accent-gold);
+}
+
+/* Styles list item images with fixed dimensions */
+li img {
+    width: 25px;
+    height: 20px;
+    margin: 0;
+    display: block;
+}
+
+/* ===================================
+   HEADER & NAVIGATION
+   =================================== */
+
+/* Align icon and link text vertically inside each list item */
+.nav-left li,
+.nav-right li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Adds background color, padding around elements and positions nav items correctly */
+.navbar {
+    background-color: var(--color-secondary-dark);
+    padding: 30px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-body);
+}
+
+/* Positions nav pages in an absoluted position with gap between */
+.nav-left,
+.nav-right {
+    position: absolute;
+    display: flex;
+    gap: 60px;
+}
+
+/* Positions nav pages to the left with a margin */
+.nav-left {
+    left: 40px;
+}
+
+/* Positions "Contacts" page to the right with a margin */
+.nav-right {
+    right: 40px;
+}
+
+/* Styles linked text in navigation */
+.nav-left a,
+.nav-right a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Active state color for current page in navigation */
+.nav-left li.active a {
+    color: var(--color-text-light);
+}
+
+/* Smooth hover effect for left nav links */
+.nav-left li {
+    transition: all 0.3s ease;
+}
+
+/* Hover animation for left nav items with upward movement */
+.nav-left li:hover {
+    transform: translateY(-3px);
+}
+
+/* Changes left nav link text color on hover */
+.nav-left a:hover {
+    color: var(--color-text-light);
+}
+
+/* Style Contact button */
+.nav-right li {
+    background-color: var(--color-accent-gold);
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Styles Contact buttons text */
+.nav-right a {
+    color: var(--color-secondary-dark);
+    font-weight: bold;
+}
+
+/* Hover animation for Contact button */
+.nav-right li:hover {
+    background-color: var(--color-accent-gold-light);
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(194, 171, 122, 0.4);
+}
+
+/* Aligns the portrait image with the name vertically and centered */
+.nav-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Changes the size of the portrait image and put a margin between the text */
+.nav-center img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+/* Styles name under the portrait */
+.nav-center span {
+    font-family: var(--font-script);
+    color: var(--color-white);
+    font-size: 32px;
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+
+/* Styles and aligns the items in the footer */
+footer {
+    background-color: var(--color-secondary-dark);
+    padding: 40px 5%;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Adds a row flex layout to footer content */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 40px;
+}
+
+/* Increase font size and adds margin for h3 */
+.footer-left h3 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+}
+
+/* Decrease font size for p */
+.footer-left p {
+    font-size: 14px;
+}
+
+/* Aligns social links */
+.footer-social {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Aligns and styles social links */
+.footer-social a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-white);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for social links */
+.footer-social a:hover {
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+}
+
+/* Resizes social icons */
+.footer-social img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Adds a divider */
+.footer-divider {
+    width: 100%;
+    max-width: 1200px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Aligns the copyright section */
+.footer-bottom {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Copyright text styling */
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--color-text-light);
+}
+
+/* Copyright text and links styling */
+.footer-bottom a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 14px;
+    font-family: var(--font-body);
+    transition: color 0.3s ease;
+}
+
+/* Change link color to gold on hover */
+.footer-bottom a:hover {
+    color: var(--color-accent-gold);
+}
+
+/* Styles seperator between footer links */
+.footer-separator {
+    color: var(--color-text-light);
+    font-size: 14px;
+}
+
+/* ===================================
+   INDEX PAGE
+   =================================== */
+
+/* Index page content centered aligned with padding and full screen layout */
+.index-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-primary-dark);
+    padding: 40px 10%;
+    min-height: calc(100vh - 200px);
+}
+
+/* Creates the main layout of the page with an overall grid*/
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 400px;
+    background-color: var(--color-primary-dark);
+    width: 1200px;
+    max-width: 100%;
+    gap: 10px;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+/* Styles the sections of the main grid and makes sure the take upp all the space within the grid. Adds an*/
+.container div section {
+    background-color: var(--color-secondary-dark);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Pushes the first box of the grid across the top two columns*/
+.item1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+/* Aligns the top image of text */
+.item1 img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Puts "Skills" and "Experiences" evenly next to each other and adds a gap between them */
+.item2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+/* Adds padding within "Skills" and "Experiences" sections */
+.item2 section {
+    padding: 20px;
+}
+
+/* Positions skills titles next to their rating images */
+.Skills h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Resizes rating images */
+.Skills h2 img {
+    height: 1em;
+    width: auto;
+    display: inline-block;
+}
+
+/* Creates a grid within the main grid with a gap between three separate boxes */
+.item3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+
+/* Spans one of the three boxes to the top*/
+.intro {
+    grid-column: 1 / 3;
+    padding: 20px;
+}
+
+/* Centers Education and Years sections both horizontally and vertically */
+.Education,
+.Years {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Aligns Projects and Gallery items */
+.Projects,
+.Gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Adds margin to Projects and Gallery heading text */
+.Projects h1,
+.Gallery h1 {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+/* Remove top margin from "see all" links */
+.Projects h3,
+.Gallery h3 {
+    margin-top: 0;
+}
+
+/* Resizes and styles images in Projects and Gallery sections */
+.Projects img,
+.Gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 0 10px 10px;
+    margin-top: 10px;
+}
+
+/* ===================================
+   PROJECTS PAGE
+   =================================== */
+
+/* Title styling and positioning */
+.Project-Title h1 {
+    font-size: 52px;
+    padding: 20px;
+}
+
+/* Creates vertically stacked project cards. */
+.projects-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-primary-dark);
+    gap: 40px;
+    padding: 40px 10%;
+    min-height: calc(100vh - 200px);
+}
+
+/* Aligns and styles project cards horizontally */
+.project-item {
+    width: 1200px;
+    max-width: 100%;
+    background-color: var(--color-secondary-dark);
+    border-radius: 10px;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Resizes and styles each projects image */
+.project-item img {
+    flex: 0 0 50%;
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/* Styles and positions each projects text */
+.project-item .project-content {
+    text-align: left;
+    width: 50%;
+    padding: 30px;
+}
+
+/* Adds gold color to project titles */
+.project-content h1 {
+    color: var(--color-accent-gold);
+}
+
+/* Adds margin below */
+.project-content h3 {
+    margin-bottom: 5px;
+}
+
+/* ===================================
+   GALLERY PAGE
+   =================================== */
+
+/* Align heading centered above main content and adds padding with full screen layout */
+.gallery-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 10%;
+    min-height: calc(100vh - 200px);
+}
+
+/* Title styling and positioning */
+.gallery-page .Project-Title h1 {
+    font-size: 52px;
+    margin: 0 0 40px 0;
+    padding: 20px;
+}
+
+/* Resizes the main container for the gallery */
+.gallery-container {
+    width: 1200px;
+    max-width: 100%;
+}
+
+/* Creates and styles the 3x3 grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    border-radius: 10px;
+}
+
+/* Styles and aligns each gallery item*/
+.gallery-item {
+    background: var(--color-secondary-dark);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: var(--color-text-light);
+    gap: 5px;
+    padding-bottom: 20px;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+    transform-origin: center;
+    will-change: transform;
+}
+
+/* Resizes and styles each gallery item image */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Aligns and styles each gallery item title */
+.gallery-item h4 {
+    margin: 8px 0 0 0;
+    color: var(--color-white);
+    padding-left: 10px;
+}
+
+/* Aligns and styles each gallery item description text */
+.gallery-item p {
+    margin: 0;
+    color: var(--color-text-light);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Scale up and add shadow on hover for gallery items */
+.gallery-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+    z-index: 2;
+}
+
+/* ===================================
+   CONTACT PAGE
+   =================================== */
+
+/* Center and positions title above form */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 10%;
+}
+
+/* Contact page title styling and positioning */
+.contact-title h1 {
+    font-size: 52px;
+    margin: 0 0 35px 0;
+    padding: 20px;
+}
+
+/* Puts Messages on left and subject,name,email and button on right with gap between */
+.contact-form {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Adds background color, border radius, and padding to both form columns */
+.contact-form .form-left,
+.contact-form .form-right {
+    background-color: var(--color-secondary-dark);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Left column take up 50% width */
+.contact-form .form-left {
+    flex: 1 1 50%;
+    min-width: 300px;
+}
+
+/* Right column take up 50% width with vertical alignments */
+.contact-form .form-right {
+    flex: 1 1 50%;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: space-between;
+}
+
+/* Styles and aligns the input for text, email and textarea */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: black;
+    box-sizing: border-box;
+}
+
+/* Creates a min height for textarea */
+.contact-form textarea {
+    min-height: 220px;
+}
+
+/* Styles and aligns send button */
+.send-btn {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: auto;
+    padding: 10px 14px;
+    background-color: var(--color-accent-gold);
+    color: var(--color-secondary-dark);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover effects for send button */
+.send-btn:hover {
+    background-color: var(--color-accent-gold-light);
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(194, 171, 122, 0.4);
+}
+
+/* Label styling for screen-reader only */
+.contact-form label {
+    display: block;
+    color: #dfeaf6;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* Visually hide labels but keep them accessible to screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ===================================
+   RESPONSIVE STYLES - HEADER & FOOTER
+   =================================== */
+
+/* Tablet size */
+@media (min-width: 820px) and (max-width: 1280px) {
+
+    /* Reduce navigation padding on tablets */
+    .navbar {
+        padding: 25px 0;
+    }
+
+    /* Reduce gap between navigation items */
+    .nav-left,
+    .nav-right {
+        gap: 40px;
+    }
+
+    /* Reduce left margin for navigation */
+    .nav-left {
+        left: 20px;
+    }
+
+    /* Reduce right margin for contact button */
+    .nav-right {
+        right: 20px;
+    }
+
+    /* Reduce font size for navigation links */
+    .nav-left a,
+    .nav-right a {
+        font-size: 16px;
+    }
+
+    /* Tablet footer adjustments */
+    footer {
+        padding: 25px 5%;
+        margin-top: 30px;
+        gap: 15px;
+    }
+
+    /* Reduce gap between footer sections */
+    .footer-content {
+        gap: 20px;
+    }
+
+    /* Reduce footer heading size on tablets */
+    .footer-left h3 {
+        font-size: 20px;
+        margin: 0 0 8px 0;
+    }
+
+    /* Reduce social link font size on tablets */
+    .footer-social a {
+        font-size: 14px;
+    }
+}
+
+/* Mobile size */
+@media (max-width: 819px) {
+
+    /* Stack navigation items and center them */
+    .navbar {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    /* Remove absolute positioning and adjust alignment */
+    .nav-left,
+    .nav-right {
+        position: static;
+        gap: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Move portrait to top of navigation */
+    .nav-center {
+        order: -1;
+    }
+
+    /* Reduce portrait size */
+    .nav-center img {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* Aligns footer items vertically */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+}
+
+/* ===================================
+   RESPONSIVE STYLES - INDEX PAGE
+   =================================== */
+
+/* Tablet size */
+@media (min-width: 820px) and (max-width: 1280px) {
+
+    /* Adjust page padding and remove fixed height */
+    .index-page {
+        min-height: auto;
+        padding: 30px 5%;
+    }
+
+    /* Make container responsive with auto row heights */
+    .container {
+        width: 100%;
+        max-width: 1100px;
+        gap: 12px;
+        grid-auto-rows: auto;
+        margin: 0 auto;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Ensure child divs fill container width */
+    .container>div {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Enable text wrapping for long words */
+    .container div section {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Limit hero image height */
+    .item1 img {
+        max-height: 350px;
+        object-fit: contain;
+        padding-bottom: 10px;
+    }
+
+    /* Adjust spacing for Skills and Experiences sections */
+    .item2 {
+        justify-content: space-between;
+    }
+
+    /* Reduce padding and set minimum height for item2 sections */
+    .item2 section {
+        padding: 15px;
+        min-height: 300px;
+        flex: 1;
+    }
+
+    /* Reduce font sizes in item2 */
+    .item2 h1 {
+        font-size: 26px;
+    }
+
+    .item2 h2 {
+        font-size: 16px;
+    }
+
+    .item2 p {
+        font-size: 14px;
+    }
+
+    /* Reduce intro section padding */
+    .intro {
+        padding: 15px;
+    }
+
+    /* Maintain two-column grid for item3 */
+    .item3 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Reduce intro heading sizes */
+    .intro h1 {
+        font-size: 28px;
+    }
+
+    .intro h3 {
+        font-size: 16px;
+    }
+
+    /* Limit Education heading width and wrap text */
+    .Education h1 {
+        text-align: center;
+        max-width: 120px;
+        word-wrap: break-word;
+        font-size: 28px;
+    }
+
+    /* Center and decrease font size for Years sections */
+    .Years {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .Years h1 {
+        font-size: 28px;
+    }
+
+    .Education p,
+    .Years p {
+        font-size: 14px;
+    }
+
+    /* Add padding to Projects and Gallery sections */
+    .Projects,
+    .Gallery {
+        padding: 15px 15px 0 15px;
+        overflow: hidden;
+    }
+
+    /* Remove top margin from Projects and Gallery headings */
+    .Projects h1,
+    .Gallery h1 {
+        font-size: 28px;
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    /* Adjust spacing for "see all" links */
+    .Projects h3,
+    .Gallery h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    /* Make Projects and Gallery images extend beyond padding */
+    .Projects img,
+    .Gallery img {
+        position: relative;
+        width: calc(100% + 30px);
+    }
+}
+
+/* Mobile size */
+@media (max-width: 819px) {
+
+    /* Reduce padding for mobile devices */
+    .index-page {
+        padding: 20px 5%;
+    }
+
+    /* Switch to vertical layout on mobile */
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Adjust hero image padding on mobile */
+    .item1 img {
+        width: 100%;
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    /* Stack Skills and Experiences vertically on mobile */
+    .item2 {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Adjust item2 section layout for mobile */
+    .item2 section {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    /* Reduce headings and body text sizes */
+    .item2 h1 {
+        font-size: 26px;
+    }
+
+    .item2 h2 {
+        font-size: 18px;
+    }
+
+    .item2 p {
+        font-size: 14px;
+    }
+
+    /* Maintain two-column grid for item3 on mobile */
+    .item3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    /* Reduce intro heading and link size */
+    .intro h1 {
+        font-size: 28px;
+    }
+
+    .intro h3 {
+        font-size: 16px;
+    }
+
+    /* Center Education and Years content */
+    .Education,
+    .Years {
+        align-items: center;
+        padding: 20px;
+    }
+
+    /* Center and resize Education/Years headings */
+    .Education h1,
+    .Years h1 {
+        text-align: center;
+        width: 100%;
+        font-size: 26px;
+    }
+
+    /* Center and resize Education/Years body text */
+    .Education p,
+    .Years p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    /* Add padding to Projects and Gallery sections */
+    .Projects,
+    .Gallery {
+        padding: 15px 15px 0 15px;
+    }
+
+    /* Reduce heading sizes for Projects and Gallery sections */
+    .Projects h1,
+    .Gallery h1 {
+        font-size: 26px;
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    /* Adjust "see all" link spacing */
+    .Projects h3,
+    .Gallery h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    /* Make images extend beyond padding */
+    .Projects img,
+    .Gallery img {
+        position: relative;
+        width: calc(100% + 30px);
+    }
+}
+
+/* ===================================
+   RESPONSIVE STYLES - PROJECTS PAGE
+   =================================== */
+
+/* Tablet size */
+@media (min-width: 820px) and (max-width: 1280px) {
+
+    /* Adjust projects page spacing */
+    .projects-page {
+        padding: 30px 5%;
+        gap: 30px;
+    }
+
+    /* Adjust project card width */
+    .project-item {
+        width: 100%;
+    }
+
+    /* Reduce project title size */
+    .project-content h1 {
+        font-size: 26px;
+    }
+
+    /* Reduce project content heading and body text sizes */
+    .project-content h3 {
+        font-size: 16px;
+    }
+
+    .project-content h4 {
+        font-size: 16px;
+    }
+
+    .project-content p {
+        font-size: 14px;
+    }
+
+    /* Reduce Projects page title */
+    .Project-Title h1 {
+        font-size: 44px;
+        padding: 15px;
+    }
+}
+
+/* Mobile size */
+@media (max-width: 819px) {
+
+    /* Reduce projects page spacing */
+    .projects-page {
+        padding: 20px 5%;
+        gap: 20px;
+    }
+
+    /* Stack project cards vertically */
+    .project-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Adjust project image border radius for vertical layout */
+    .project-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px 10px 0 0;
+    }
+
+    /* Make project content full width */
+    .project-item .project-content {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 15px;
+    }
+
+    ¨
+
+    /* Reduce project content heading and body text sizes */
+    .project-content h1 {
+        font-size: 24px;
+    }
+
+    .project-content h3 {
+        font-size: 16px;
+        margin-top: 15px;
+    }
+
+    .project-content h4 {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .project-content p {
+        font-size: 14px;
+    }
+
+    .Project-Title h1 {
+        font-size: 36px;
+        padding: 10px;
+    }
+}
+
+/* ===================================
+   RESPONSIVE STYLES - GALLERY PAGE
+   =================================== */
+
+/* Tablet size */
+@media (min-width: 820px) and (max-width: 1280px) {
+
+    /* Adjust gallery page padding */
+    .gallery-page {
+        padding: 30px 5%;
+    }
+
+    /* Make gallery container responsive  */
+    .gallery-container {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* Switch to two-column grid */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    /* Reduce gallery page title, headings and body text sizes */
+    .gallery-page .Project-Title h1 {
+        font-size: 44px;
+        padding: 15px;
+    }
+
+    .gallery-item h4 {
+        font-size: 16px;
+    }
+
+    .gallery-item p {
+        font-size: 14px;
+    }
+}
+
+/* Mobile size */
+@media (max-width: 819px) {
+
+    /* Reduce gallery page padding */
+    .gallery-page {
+        padding: 20px 5%;
+    }
+
+    /* Switch to single column layout */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Reduce gallery title, headings and body text sizes */
+    .gallery-page .Project-Title h1 {
+        font-size: 36px;
+        padding: 10px;
+    }
+
+    .gallery-item h4 {
+        font-size: 16px;
+    }
+
+    .gallery-item p {
+        font-size: 14px;
+    }
+}
+
+/* ===================================
+   RESPONSIVE STYLES - CONTACT PAGE
+   =================================== */
+
+/* Tablet size */
+@media (min-width: 820px) and (max-width: 1280px) {
+
+    /* Adjust contact container padding */
+    .contact-container {
+        padding: 30px 5%;
+    }
+
+    /* Adjust contact form width */
+    .contact-form {
+        max-width: 95%;
+        gap: 14px;
+    }
+
+    /* Reduce contact title size */
+    .contact-title h1 {
+        font-size: 44px;
+        padding: 15px;
+    }
+}
+
+/* Mobile size */
+@media (max-width: 819px) {
+
+    /* Adjust contact container padding */
+    .contact-container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    /* Stack contact form vertically */
+    .contact-form {
+        flex-direction: column;
+    }
+
+    /* Make form columns full width */
+    .contact-form .form-left,
+    .contact-form .form-right {
+        width: 100%;
+    }
+
+    /* Adjust gap in right form column */
+    .contact-form .form-right {
+        gap: 12px;
+        justify-content: space-between;
+    }
+
+    /* Reduce textarea height */
+    .contact-form textarea {
+        min-height: 160px;
+    }
+}
