@@ -280,7 +280,7 @@ li img {
 /* Styles and aligns the items in the footer */
 footer {
     background-color: var(--color-secondary-dark);
-    padding: 40px 5%;
+    padding: 40px 10%;
     margin-top: 60px;
     display: flex;
     flex-direction: column;
@@ -389,14 +389,13 @@ footer {
    INDEX PAGE
    =================================== */
 
-/* Index page content centered aligned with padding and full screen layout */
+/* Index page content centered aligned with padding */
 .index-page {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: var(--color-primary-dark);
     padding: 40px 10%;
-    min-height: calc(100vh - 200px);
 }
 
 /* Creates the main layout of the page with an overall grid*/
@@ -539,7 +538,6 @@ footer {
     background-color: var(--color-primary-dark);
     gap: 40px;
     padding: 40px 10%;
-    min-height: calc(100vh - 200px);
 }
 
 /* Aligns and styles project cards horizontally */
@@ -591,7 +589,6 @@ footer {
     flex-direction: column;
     align-items: center;
     padding: 40px 10%;
-    min-height: calc(100vh - 200px);
 }
 
 /* Title styling and positioning */
@@ -925,7 +922,7 @@ footer {
 
     /* Reduce font sizes in item2 */
     .item2 h1 {
-        font-size: 26px;
+        font-size: 24px;
     }
 
     .item2 h2 {
@@ -934,6 +931,13 @@ footer {
 
     .item2 p {
         font-size: 14px;
+    }
+
+    /* Ensure rating images scale properly on mobile */
+    .Skills h2 img {
+        height: 0.5em;
+        width: auto;
+        flex-shrink: 0;
     }
 
     /* Reduce intro section padding */
@@ -1031,30 +1035,40 @@ footer {
         padding-bottom: 10px;
     }
 
-    /* Stack Skills and Experiences vertically on mobile */
+    /* Keep Skills and Experiences side by side on mobile */
     .item2 {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        gap: 10px;
     }
 
     /* Adjust item2 section layout for mobile */
     .item2 section {
         display: flex;
         flex-direction: column;
-        padding: 15px;
+        padding: 10px;
+        padding-bottom: 20px;
+        overflow: hidden;
     }
 
     /* Reduce headings and body text sizes */
     .item2 h1 {
-        font-size: 26px;
+        font-size: 22px;
     }
 
     .item2 h2 {
-        font-size: 18px;
+        font-size: 12px;
     }
 
     .item2 p {
-        font-size: 14px;
+        font-size: 11px;
+        word-wrap: break-word;
+    }
+
+    /* Ensure rating images scale properly on mobile */
+    .Skills h2 img {
+        height: 1em;
+        width: auto;
+        flex-shrink: 0;
     }
 
     /* Maintain two-column grid for item3 on mobile */
