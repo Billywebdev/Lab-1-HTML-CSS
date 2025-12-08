@@ -4,16 +4,20 @@
 
 :root {
     /* Color Variables */
-    --color-primary-dark: #183450;
-    --color-secondary-dark: #11263B;
+    --bg: hsl(0, 0%, 5%);
+    --bg-light: hsl(0, 0%, 10%);
+    --text: hsl(0, 0%, 95%);
+    --text-muted: hsl(0, 0%, 70%);
+    --border: hsl(0, 0%, 15%);
+    --gradient: linear-gradient(0deg, var(--bg), var(--bg-light));
+    --highlight: hsl(0, 0%, 25%);
+    --shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.7), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
     --color-accent-gold: #c2ab7a;
     --color-accent-gold-light: #d4c5a0;
-    --color-text-light: #babcb6;
-    --color-white: #ffffff;
 
     /* Font Families */
-    --font-heading: Amulya;
-    --font-body: Synonym;
+    --font-heading: Montserrat;
+    --font-body: Open Sans, sans-serif;
     --font-script: GreatVibes;
 }
 
@@ -22,10 +26,23 @@
    =================================== */
 
 /* Fade-in animation for page content */
-@keyframes fadeIn {
+@keyframes fadeIn-from-bottom {
     from {
         opacity: 0;
         transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade-in animation for main title */
+@keyframes fadeIn-from-top {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
     }
 
     to {
@@ -50,6 +67,12 @@
     src: url(fonts/GreatVibes-Regular.ttf);
 }
 
+@font-face {
+    font-family: Montserrat;
+    src: url(fonts/Montserrat-VariableFont_wght.ttf);
+
+}
+
 /* Enable smooth scrolling for website */
 html {
     scroll-behavior: smooth;
@@ -62,31 +85,34 @@ html {
     margin: 0;
 }
 
-/* Set body to full viewport height with flexbox for sticky footer layout */
-body {
-    background-color: var(--color-primary-dark);
+/* Styles main content area with background image */
+main {
+    background-image: url(images/background-image.png);
+    background-position: center top;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-attachment: scroll;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
-/* Allow main content to grow and push footer to bottom */
-main {
-    flex: 1;
+/* Adds background color */
+body {
+    width: 100vw;
+    min-height: 100vh;
 }
 
 /* Styles the heading text and adds a margin*/
 h1 {
     font-family: var(--font-heading);
     font-size: 32px;
-    color: var(--color-white);
+    color: var(--text);
 }
 
 /* Styles the second heading text and adds a margin*/
 h2 {
     font-family: var(--font-body);
     font-size: 20px;
-    color: var(--color-white);
+    color: var(--text);
     margin-top: 20px;
     margin-bottom: 5px;
 }
@@ -97,7 +123,7 @@ h3 {
     font-size: 18px;
     margin-top: 20px;
     margin-bottom: 10px;
-    color: var(--color-white);
+    color: var(--text);
 }
 
 /* Styles the fourth heading text and adds margins */
@@ -105,18 +131,30 @@ h4 {
     font-family: var(--font-heading);
     font-size: 18px;
     margin-bottom: 30px;
-    color: var(--color-white);
+    color: var(--text);
+}
+
+/* Styles the body text */
+p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+/* Styles specific words */
+span {
+    color: var(--color-accent-gold);
+    font-family: var(--font-heading);
 }
 
 /* Styles heading links with gold color and smooth transitions */
 h3 a {
     font-size: 20px;
     color: var(--color-accent-gold);
+    font-family: var(--font-body);
     margin-bottom: 5px;
     text-decoration: none;
     position: relative;
-    display: inline-block;
-    transition: color 0.3s ease;
 }
 
 /* Animated underline for heading links */
@@ -129,6 +167,7 @@ h3 a::after {
     height: 2px;
     background-color: var(--color-accent-gold);
     transition: width 0.3s ease;
+
 }
 
 /* Hover state for heading links with color change */
@@ -141,16 +180,16 @@ h3 a:hover::after {
     width: 100%;
 }
 
-/* Styles the body text */
-p {
-    font-family: var(--font-body);
-    font-size: 16px;
-    color: var(--color-text-light);
-}
+/* ===================================
+   HEADER & NAVIGATION
+   =================================== */
 
-/* Styles specific words */
-span {
-    color: var(--color-accent-gold);
+/* Align icon and link text horizontally inside each list item */
+.nav-left li,
+.nav-right li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* Styles list item images with fixed dimensions */
@@ -161,27 +200,22 @@ li img {
     display: block;
 }
 
-/* ===================================
-   HEADER & NAVIGATION
-   =================================== */
-
-/* Align icon and link text vertically inside each list item */
-.nav-left li,
-.nav-right li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.Projects-img {
+    width: 20px;
 }
 
 /* Adds background color, padding around elements and positions nav items correctly */
 .navbar {
-    background-color: var(--color-secondary-dark);
+    background-color: var(--bg-light);
+    background: var(--gradient);
     padding: 30px 0;
+    border: solid 1px var(--border);
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: var(--font-body);
+    box-shadow: var(--shadow);
 }
 
 /* Positions nav pages in an absoluted position with gap between */
@@ -205,14 +239,15 @@ li img {
 /* Styles linked text in navigation */
 .nav-left a,
 .nav-right a {
-    color: var(--color-white);
+    color: var(--text);
     text-decoration: none;
     font-size: 18px;
+    font-family: var(--font-body);
 }
 
 /* Active state color for current page in navigation */
 .nav-left li.active a {
-    color: var(--color-text-light);
+    color: var(--text-muted);
 }
 
 /* Smooth hover effect for left nav links */
@@ -227,7 +262,7 @@ li img {
 
 /* Changes left nav link text color on hover */
 .nav-left a:hover {
-    color: var(--color-text-light);
+    color: var(--text-muted);
 }
 
 /* Style Contact button */
@@ -240,7 +275,7 @@ li img {
 
 /* Styles Contact buttons text */
 .nav-right a {
-    color: var(--color-secondary-dark);
+    color: var(--bg-light);
     font-weight: bold;
 }
 
@@ -269,7 +304,7 @@ li img {
 /* Styles name under the portrait */
 .nav-center span {
     font-family: var(--font-script);
-    color: var(--color-white);
+    color: var(--text);
     font-size: 32px;
 }
 
@@ -279,13 +314,17 @@ li img {
 
 /* Styles and aligns the items in the footer */
 footer {
-    background-color: var(--color-secondary-dark);
+    background-color: var(--bg-light);
+    background: var(--gradient);
+    border: solid 1px var(--border);
+    border-top: solid 1px var(--highlight);
     padding: 40px 10%;
-    margin-top: 60px;
+    margin-top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 25px;
+    box-shadow: var(--shadow);
 }
 
 /* Adds a row flex layout to footer content */
@@ -321,7 +360,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: var(--color-white);
+    color: var(--text);
     text-decoration: none;
     font-family: var(--font-body);
     font-size: 16px;
@@ -330,7 +369,7 @@ footer {
 
 /* Hover effect for social links */
 .footer-social a:hover {
-    color: var(--color-text-light);
+    color: var(--text-muted);
     transform: translateY(-2px);
 }
 
@@ -362,12 +401,12 @@ footer {
 .footer-bottom p {
     margin: 0;
     font-size: 14px;
-    color: var(--color-text-light);
+    color: var(--text-muted);
 }
 
 /* Copyright text and links styling */
 .footer-bottom a {
-    color: var(--color-text-light);
+    color: var(--text-muted);
     text-decoration: none;
     font-size: 14px;
     font-family: var(--font-body);
@@ -381,7 +420,7 @@ footer {
 
 /* Styles seperator between footer links */
 .footer-separator {
-    color: var(--color-text-light);
+    color: var(--text-muted);
     font-size: 14px;
 }
 
@@ -394,8 +433,8 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--color-primary-dark);
     padding: 40px 10%;
+    padding-top: 0;
 }
 
 /* Creates the main layout of the page with an overall grid*/
@@ -403,7 +442,6 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 400px;
-    background-color: var(--color-primary-dark);
     width: 1200px;
     max-width: 100%;
     gap: 10px;
@@ -413,17 +451,22 @@ footer {
 
 /* Styles the sections of the main grid and makes sure the take upp all the space within the grid. Adds an*/
 .container div section {
-    background-color: var(--color-secondary-dark);
+    background-color: var(--bg-light);
+    background: var(--gradient);
+    border: solid 1px var(--border);
+    border-top: solid 1px var(--highlight);
     border-radius: 10px;
     width: 100%;
     height: 100%;
-    animation: fadeIn 1s ease-out;
+    animation: fadeIn-from-bottom 1s ease-out;
+    box-shadow: var(--shadow);
 }
 
 /* Pushes the first box of the grid across the top two columns*/
 .item1 {
     grid-column-start: 1;
     grid-column-end: 3;
+    animation: fadeIn-from-top 1s ease-out;
 }
 
 /* Aligns the top image of text */
@@ -535,7 +578,6 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--color-primary-dark);
     gap: 40px;
     padding: 40px 10%;
 }
@@ -544,11 +586,15 @@ footer {
 .project-item {
     width: 1200px;
     max-width: 100%;
-    background-color: var(--color-secondary-dark);
+    background-color: var(--bg-light);
+    background: var(--gradient);
+    border: solid 1px var(--border);
+    border-top: solid 1px var(--highlight);
     border-radius: 10px;
     padding: 0;
     display: flex;
     align-items: flex-start;
+    box-shadow: var(--shadow);
 }
 
 /* Resizes and styles each projects image */
@@ -614,17 +660,21 @@ footer {
 
 /* Styles and aligns each gallery item*/
 .gallery-item {
-    background: var(--color-secondary-dark);
+    background: var(--bg-light);
+    background: var(--gradient);
+    border: solid 1px var(--border);
+    border-top: solid 1px var(--highlight);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     text-align: left;
-    color: var(--color-text-light);
+    color: var(--text-muted);
     gap: 5px;
     padding-bottom: 20px;
     transition: transform 200ms ease, box-shadow 200ms ease;
     transform-origin: center;
     will-change: transform;
+    box-shadow: var(--shadow);
 }
 
 /* Resizes and styles each gallery item image */
@@ -639,14 +689,14 @@ footer {
 /* Aligns and styles each gallery item title */
 .gallery-item h4 {
     margin: 8px 0 0 0;
-    color: var(--color-white);
+    color: var(--text);
     padding-left: 10px;
 }
 
 /* Aligns and styles each gallery item description text */
 .gallery-item p {
     margin: 0;
-    color: var(--color-text-light);
+    color: var(--text-muted);
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -690,9 +740,12 @@ footer {
 /* Adds background color, border radius, and padding to both form columns */
 .contact-form .form-left,
 .contact-form .form-right {
-    background-color: var(--color-secondary-dark);
+    background: var(--gradient);
+    border: solid 1px var(--border);
+    border-top: solid 1px var(--highlight);
     border-radius: 10px;
     padding: 20px;
+    box-shadow: var(--shadow);
 }
 
 /* Left column take up 50% width */
@@ -736,7 +789,7 @@ footer {
     margin-left: auto;
     padding: 10px 14px;
     background-color: var(--color-accent-gold);
-    color: var(--color-secondary-dark);
+    color: var(--bg-light);
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -808,7 +861,7 @@ footer {
     /* Tablet footer adjustments */
     footer {
         padding: 25px 5%;
-        margin-top: 30px;
+        margin-top: 0;
         gap: 15px;
     }
 
